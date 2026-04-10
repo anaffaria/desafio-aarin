@@ -72,16 +72,16 @@ docker run --rm desafio-aarin-tests
 Às vezes, o cliente realiza o pagamento com sucesso, porém o pedido não aparece na tela de **“Meus Pedidos”**.
 
 ### Primeira ação
-Eu pegaria o id do pedido e pediria para um dev ajuda (ou usaria um SGBD / API interna de consulta, se eu tivesse acesso) para ver se esse pedido no banco de dados. 
+Eu pegaria o id do pedido e pediria para um dev auxilio (ou usaria um SGBD / API interna de consulta, se eu tivesse acesso) para ver se esse pedido no banco de dados existe. 
 Por quê?
-Preciso saber se o pedido existe. Se o pedido está no banco de dados, mas não aparece no site, o problema pode ser no Frontend (exibição). Se o pedido nem existe no banco, o problema pode ter sido em algum momento na integração (o sistema não recebeu o aviso de pagamento). 
+Preciso saber se o pedido está registrado. Se o pedido está no banco de dados, mas não aparece no site, o problema pode ser no Frontend (exibição). Se o pedido nem existe no banco, o problema pode ter sido em algum momento na integração (o sistema não recebeu o aviso de pagamento). 
 
 ### Hipotese
 Eu suspeitaria que o problema esteja na conversa entre o banco de dados e o gateway de pagamento.
 Por quê?
-Muitas vezes, o cliente paga, mas o aviso do gateway enviado de volta para o site falha ou fica preso em uma fila. Como resultado, o banco de dados da aplicação não é atualizado e o pedido não muda de status para o usuário final. 
+Muitas vezes, o cliente paga, mas o aviso do gateway enviado de volta para o site falha ou fica preso em uma fila. Como resultado, o banco de dados da aplicação não é atualizado e o pedido não muda de status para o usuário final mesmo o pedido sendo pago. 
 
-### Investigação em ação 
+### Ações para confirmação
 1. Acessaria a ferramenta de logs filtraria por erros 500 ou 400 no horário exato em que o cliente tentou finaliza a compra.
   
 2. Apoio do Time - Levaria o ID da transação aos devs e perguntaria: "Recebemos o Webhook desse pagamento? Ele deu algum erro de validação ao tentar criar o pedido no banco?"
