@@ -82,7 +82,7 @@ Por quê?
 Muitas vezes, o cliente paga, mas o aviso do gateway enviado de volta para o site falha ou fica preso em uma fila. Como resultado, o banco de dados da aplicação não é atualizado e o pedido não muda de status para o usuário final mesmo o pedido sendo pago. 
 
 ### Ações para confirmação
-1. Acessaria a ferramenta de logs filtraria por erros 500 ou 400 no horário exato em que o cliente tentou finaliza a compra.
+1. Acessaria a ferramenta de logs filtraria por erros em geral, e também por 500 ou 400 de apis ou chamadas externas no horário exato em que o cliente tentou finaliza a compra.
   
 2. Apoio do Time - Levaria o ID da transação aos devs e perguntaria: "Recebemos o Webhook desse pagamento? Ele deu algum erro de validação ao tentar criar o pedido no banco?"
    
