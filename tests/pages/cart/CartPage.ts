@@ -56,9 +56,9 @@ export class CartPage {
 	}
 
 	async validateNotHaveElement() {
-		const cartMessage = this.page.locator(cartElements.infoCartMessage);
+		const element = this.page.locator(cartElements.alertCart);
 
-		await expect(cartMessage).not.toBeVisible();
+		await expect(element).not.toBeVisible();
 	}
 
 	async insertCoupon(cupom: string) {

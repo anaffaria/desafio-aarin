@@ -5,7 +5,7 @@ export const cartElements = {
 	inputUpdateCart: 'input[name="update_cart"]',
 	couponInput: '#coupon_code',
 	applyCouponButton: 'input[name="apply_coupon"]',
-	infoCartMessage: '.woocommerce-message[role="alert"]',
+	alertCart: '.woocommerce-message[role="alert"]',
 	errorCartMessage: 'ul.woocommerce-error li',
 	btnFinishPurchase: '.checkout-button.button.alt.wc-forward'
 };
