@@ -29,7 +29,9 @@ test.describe('Suite de testes de Carrinho', () => {
 		await productPage.clickSeeCart();
 	});
 
-	test('Ir para a página de checkout', async () => {});
+	test('Ir para a página de checkout', async () => {
+		await cartPage.clickFinishPurchase();
+	});
 
 	test('Remove produto do carrinho', async () => {
 		await headerPage.validateProductAddedToMiniCart(1);

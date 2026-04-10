@@ -28,12 +28,6 @@ export class ProductPage {
 		await expect(quantityInput).toHaveValue(quantity.toString());
 	}
 
-	async validateNotHaveMessage(messageExpected: string) {
-		const productMessage = this.page.locator(productElements.infoCartMessage);
-
-		await expect(productMessage).not.toBeEmpty();
-	}
-
 	async clickBuyButton(state: boolean) {
 		const btnBuy = this.page.locator(productElements.btnBuy);
 

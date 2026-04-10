@@ -76,4 +76,15 @@ export class CartPage {
 		await expect(messageInvalidCoupon).toBeVisible();
 		await expect(messageInvalidCoupon).toContainText(messageExpected);
 	}
+
+	async clickFinishPurchase() {
+		const seeCartButton = this.page
+			.locator(cartElements.btnFinishPurchase)
+			.first();
+
+		await seeCartButton.click();
+
+		await expect(this.page).toHaveURL(/checkout/);
+		await this.page.waitForLoadState('networkidle');
+	}
 }
