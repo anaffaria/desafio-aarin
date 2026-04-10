@@ -1,0 +1,26 @@
+{
+  "name": "desafio-aarin",
+  "version": "1.0.0",
+  "description": "Testes E2E com Playwright para a loja lojaebac.ebaconline.art.br",
+  "scripts": {
+    "test": "playwright test",
+    "test:cart": "playwright test tests/e2e/cart.spec.ts",
+    "test:product": "playwright test tests/e2e/product.spec.ts",
+    "test:report": "playwright show-report"
+  },
+  "keywords": [
+    "playwright",
+    "e2e",
+    "testes",
+    "automação"
+  ],
+  "author": "Ana Faria",
+  "license": "ISC",
+  "engines": {
+    "node": ">=18"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.59.1",
+    "@types/node": "^25.5.2"
+  }
+}
