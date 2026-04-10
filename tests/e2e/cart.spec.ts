@@ -62,6 +62,3 @@ test.describe('Suite de testes de Carrinho', () => {
 		await cartPage.validateMessageCouponInvalid('Informe o código do cupom.');
 	});
 });
-
-//<input type="submit" class="btn btn-default" name="update_cart" value="Update Cart" aria-disabled="false">
-//<input type="submit" class="btn btn-default" name="update_cart" value="Update Cart" disabled="" aria-disabled="true">
