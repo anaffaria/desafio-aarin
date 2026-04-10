@@ -60,12 +60,10 @@ docker run --rm desafio-aarin-tests
 - Seleção de produto
 - Adição ao carrinho
 - Alteração de quantidade
-- Checkout 
----
+- Checkout
+  
 ![Evidencia](https://github.com/anaffaria/desafio-aarin/blob/main/report.png)
-
-## 📋 Cenários de teste
-
-🔗 [Documentação no Notion](https://nebula-drain-ec6.notion.site/Cen-rios-de-teste-4cc8dcd083678397be9801a8180bf5ef)
-
-![Cenários de Teste](https://github.com/anaffaria/desafio-aarin/main/cenario.png)
+---
+## 📋 Cenários de teste 🔗 [Documentação no Notion](https://nebula-drain-ec6.notion.site/Cen-rios-de-teste-4cc8dcd083678397be9801a8180bf5ef)
+![Cenários de Teste](https://github.com/anaffaria/desafio-aarin/blob/main/cenario.png)
+---
