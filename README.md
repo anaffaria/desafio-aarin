@@ -5,18 +5,7 @@ Automação E2E do fluxo de compra da **EBAC Shop**, utilizando **Playwright + T
 🔗 Aplicação: http://lojaebac.ebaconline.art.br/
 
 ---
-
-## 📋 Fluxo automatizado
-
-- Acesso à página inicial
-- Seleção de produto
-- Adição ao carrinho
-- Alteração de quantidade
-- Checkout 
----
-
 ## 📁 Estrutura do projeto
-
 ```bash
 tests/
 ├── e2e/
@@ -65,8 +54,18 @@ docker build -t desafio-aarin-tests .
 docker run --rm desafio-aarin-tests
 ```
 ---
+
+## 📋 Fluxo automatizado
+- Acesso à página inicial
+- Seleção de produto
+- Adição ao carrinho
+- Alteração de quantidade
+- Checkout 
+---
+![Evidencia](https://github.com/anaffaria/desafio-aarin/main/report.png)
+
 ## 📋 Cenários de teste
 
 🔗 [Documentação no Notion](https://nebula-drain-ec6.notion.site/Cen-rios-de-teste-4cc8dcd083678397be9801a8180bf5ef)
 
-![Cenários de Teste](https://github.com/anaffaria/desafio-aarin/main/cenarios.png)
+![Cenários de Teste](https://github.com/anaffaria/desafio-aarin/main/cenario.png)
