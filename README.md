@@ -62,7 +62,7 @@ docker run --rm desafio-aarin-tests
 - Alteração de quantidade
 - Checkout 
 ---
-![Evidencia](https://github.com/anaffaria/desafio-aarin/main/report.png)
+![Evidencia](https://github.com/anaffaria/desafio-aarin/blob/main/report.png)
 
 ## 📋 Cenários de teste
 
