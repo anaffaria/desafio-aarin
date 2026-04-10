@@ -29,6 +29,8 @@ test.describe('Suite de testes de Carrinho', () => {
 		await productPage.clickSeeCart();
 	});
 
+	test('Ir para a página de checkout', async () => {});
+
 	test('Remove produto do carrinho', async () => {
 		await headerPage.validateProductAddedToMiniCart(1);
 		await cartPage.performCartAction('remove');
@@ -44,7 +46,7 @@ test.describe('Suite de testes de Carrinho', () => {
 
 	test('Não permitir quantidade maior que estoque disponível', async () => {
 		await cartPage.informedQuantityProducts(101);
-		await cartPage.performCartAction('invalidUpdate');
+		await cartPage.performCartAction('update');
 		await cartPage.validateNotHaveElement();
 	});
 

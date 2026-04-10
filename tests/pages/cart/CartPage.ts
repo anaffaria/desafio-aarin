@@ -37,14 +37,6 @@ export class CartPage {
 				await applyCouponButton.click({ force: true });
 				break;
 			}
-
-			case 'invalidUpdate': {
-				const updateButton = this.page.locator(cartElements.inputUpdateCart);
-
-				await expect(updateButton).toBeVisible();
-				await updateButton.click({ force: true });
-				break;
-			}
 		}
 	}
 
