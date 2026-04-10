@@ -1,31 +1,64 @@
 # Desafio Aarin — Testes E2E com Playwright
+# 1. O Desafio
 
-Projeto de testes end-to-end para a loja [lojaebac.ebaconline.art.br](http://lojaebac.ebaconline.art.br/), utilizando [Playwright](https://playwright.dev/) com TypeScript.
+Você deverá avaliar e automatizar parte do fluxo de compra da aplicação **EBAC Shop**.
 
-## Estrutura do projeto
+- **URL da Aplicação:** http://lojaebac.ebaconline.art.br/
+- **Contexto:** Jornada de compra padrão (navegação, seleção, carrinho e checkout).
 
-```
-tests/
-├── e2e/
-│   ├── cart.spec.ts       # Testes do carrinho
-│   └── product.spec.ts    # Testes de produto
-├── pages/
-│   ├── cart/              # Page Object do carrinho
-│   ├── header/            # Page Object do cabeçalho
-│   ├── home/              # Page Object da home
-│   └── product/           # Page Object do produto
-└── utils/
-    └── quantityUtils.ts   # Utilitários de quantidade
-```
+## Fluxo Obrigatório para Automação
 
-## Pré-requisitos
+1. Acessar a página inicial.
+2. Escolher um produto da vitrine.
+3. Adicionar o produto ao carrinho.
+4. Acessar a tela de carrinho.
+5. Alterar a quantidade do item no carrinho.
+6. Seguir para a etapa de checkout.
+7. Finalizar o fluxo até onde for tecnicamente possível no ambiente.
 
-- [Node.js](https://nodejs.org/) v18 ou superior
-- [Docker](https://www.docker.com/) (somente para o ambiente Docker)
+# 🧪 Automação de Testes - EBAC Shop
+
+Projeto de automação de testes E2E desenvolvido com **Playwright + TypeScript**, cobrindo os principais fluxos da jornada de compra da aplicação **EBAC Shop**.
 
 ---
 
-## Ambiente local
+## 📁 Estrutura do Projeto
+```bash
+tests/
+├── e2e/
+│   ├── cart.spec.ts               # Testes do carrinho
+│   └── product.spec.ts            # Testes de produto
+│
+├── pages/
+│   ├── cart/
+│   │   ├── cart.page.ts           # Ações e métodos da página
+│   │   └── cart.elements.ts       # Seletores do carrinho
+│   │
+│   ├── header/
+│   │   ├── header.page.ts         # Ações do cabeçalho
+│   │   └── header.elements.ts     # Seletores do cabeçalho
+│   │
+│   ├── home/
+│   │   ├── home.page.ts           # Ações da home 
+│   │   └── home.elements.ts       # Seletores da home 
+│   │
+│   └── product/
+│       ├── product.page.ts        # Ações de produto
+│       └── product.elements.ts    # Seletores do carrinho
+```
+
+---
+
+## ⚙️ Pré-requisitos
+
+Antes de executar o projeto, certifique-se de ter instalado:
+
+- [Node.js](https://nodejs.org/) **v18 ou superior**
+- [Docker](https://www.docker.com/) *(opcional, para execução em container)*
+
+---
+
+## 💻 Execução em Ambiente Local
 
 ### 1. Instalar dependências
 
@@ -45,13 +78,13 @@ npx playwright install chromium
 npm test
 ```
 
-### 4. Executar um arquivo de testes específico
+### 4. Executar uma suíte específica
 
 ```bash
-# Apenas testes do carrinho
+# Testes do carrinho
 npm run test:cart
 
-# Apenas testes de produto
+# Testes de produto
 npm run test:product
 ```
 
@@ -61,24 +94,26 @@ npm run test:product
 npx playwright test --grep "Adicionar produto ao carrinho"
 ```
 
-### 6. Visualizar o relatório HTML após a execução
+### 6. Visualizar relatório HTML
 
 ```bash
 npm run test:report
 ```
 
-### Scripts disponíveis
+---
 
-| Script | Comando | Descrição |
-|---|---|---|
-| `npm test` | `playwright test` | Executa todos os testes |
-| `npm run test:cart` | `playwright test tests/e2e/cart.spec.ts` | Executa apenas os testes do carrinho |
-| `npm run test:product` | `playwright test tests/e2e/product.spec.ts` | Executa apenas os testes de produto |
-| `npm run test:report` | `playwright show-report` | Abre o relatório HTML da última execução |
+## 📜 Scripts Disponíveis
+
+| Script | Descrição |
+|---|---|
+| `npm test` | Executa todos os testes |
+| `npm run test:cart` | Executa apenas os testes do carrinho |
+| `npm run test:product` | Executa apenas os testes de produto |
+| `npm run test:report` | Abre o relatório HTML da última execução |
 
 ---
 
-## Ambiente Docker
+## 🐳 Execução com Docker
 
 ### 1. Construir a imagem
 
@@ -92,13 +127,13 @@ docker build -t desafio-aarin-tests .
 docker run --rm desafio-aarin-tests
 ```
 
-### 3. Executar um arquivo de testes específico
+### 3. Executar uma suíte específica
 
 ```bash
-# Apenas testes do carrinho
+# Testes do carrinho
 docker run --rm desafio-aarin-tests npx playwright test tests/e2e/cart.spec.ts
 
-# Apenas testes de produto
+# Testes de produto
 docker run --rm desafio-aarin-tests npx playwright test tests/e2e/product.spec.ts
 ```
 
@@ -108,7 +143,7 @@ docker run --rm desafio-aarin-tests npx playwright test tests/e2e/product.spec.t
 docker run --rm desafio-aarin-tests npx playwright test --grep "Adicionar produto ao carrinho"
 ```
 
-### 5. Exportar o relatório HTML para a máquina local
+### 5. Exportar relatório HTML para máquina local
 
 ```bash
 docker run --rm -v $(pwd)/playwright-report:/app/playwright-report desafio-aarin-tests
@@ -116,10 +151,3 @@ npx playwright show-report playwright-report
 ```
 
 ---
-
-## Suítes de teste disponíveis
-
-| Suíte | Arquivo | Casos de teste |
-|---|---|---|
-| Produto | `tests/e2e/product.spec.ts` | Adicionar ao carrinho, quantidade 0, quantidade acima do estoque, sem tamanho, sem cor |
-| Carrinho | `tests/e2e/cart.spec.ts` | Remover produto, zerar quantidade, quantidade acima do estoque, cupom inexistente, cupom vazio |
